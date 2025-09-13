@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HNE YouTube Repeater</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ========= A11y-safe theme tokens ========= */
+    :root {
+      /* Light */
+      --bg: #ffffff;
+      --fg: #0b1b28;
+      --muted: #4d6476;
+      --panel: #fbfeff;
+      --border: #cfe1ef;
+
+      --btn-bg: #0f1722;
+      --btn-fg: #e6f2ff;
+      --btn-border: #3a6ea5;
+      --btn-bg-hover: #132235;
+
+      --input-bg: #f2f7fb;
+      --input-fg: #0b1b28;
+      --input-border: #b8d0e4;
+
+      --link: #0b84ff;
+      --ok: #0a7b22;
+      --warn: #a00;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Dark */
+        --bg: #0b1220;
+        --fg: #e6f2ff;
+        --muted: #9bb3c7;
+        --panel: #0f1b2a;
+        --border: #27455f;
+
+        --btn-bg: #122239;
+        --btn-fg: #e6f2ff;
+        --btn-border: #3a6ea5;
+        --btn-bg-hover: #173051;
+
+        --input-bg: #0b2133;
+        --input-fg: #e6f2ff;
+        --input-border: #3a6ea5;
+
+        --link: #5ab0ff;
+        --ok: #5fd18a;
+        --warn: #ff8080;
+      }
+    }
+
+    /* ========= Base ========= */
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; }
+    body {
+      min-width: 360px;
+      background: var(--bg);
+      color: var(--fg);
+      font: 13px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      padding: 12px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .brand {
+      display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;
+    }
+    .brand .name { font-weight:700; font-size:14px; }
+    .brand .sub  { color: var(--muted); font-size:12px; }
+
+    .row {
+      display:flex; gap:8px; align-items:center; margin-bottom:8px; white-space:nowrap;
+    }
+    .ab { margin-left:auto; white-space:nowrap; }
+
+    button {
+      padding:6px 10px;
+      border-radius:8px;
+      border:1px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      cursor:pointer;
+    }
+    button:hover { background: var(--btn-bg-hover); }
+    button:disabled { opacity:.6; cursor:not-allowed; }
+
+    input[type=number]{
+      width:80px; padding:6px 8px;
+      background: var(--input-bg);
+      color: var(--input-fg);
+      border:1px solid var(--input-border);
+      border-radius:8px;
+    }
+
+    details {
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:6px 8px;
+      background: var(--panel);
+    }
+    /* 👇 push the shortcuts block a bit lower */
+    details.pushdown { margin-top: 12px; }
+
+    summary { cursor:pointer; font-weight:600; outline:none; color: var(--fg); }
+    .muted { color: var(--muted); line-height:1.35; }
+    .cmds div { margin:2px 0; }
+
+    #status { margin-top:6px; min-height:18px; color: var(--ok); }
+    .status-bad { color: var(--warn) !important; }
+  </style>
+</head>
+<body>
+  <div class="brand">
+    <div>
+      <div class="name">HNE YouTube Repeater</div>
+      <div class="sub">by <a href="https://hnetechnologies.com" target="_blank" rel="noopener noreferrer">hnetechnologies</a></div>
+    </div>
+    <div class="sub" id="ver">v—</div>
+  </div>
+
+  <div class="row">
+    <button id="toggle">Repeat: Off</button>
+    <button id="setA">Set A</button>
+    <button id="setB">Set B</button>
+    <button id="clear">Clear</button>
+  </div>
+
+  <div class="row">
+    <label>Count x <input id="count" type="number" min="0" step="1" value="0" /></label>
+    <div class="ab">A: <span id="A">--:--</span> &nbsp; B: <span id="B">--:--</span></div>
+  </div>
+
+  <!-- just moved down with .pushdown -->
+  <details class="pushdown">
+    <summary>Shortcuts & tips</summary>
+    <div class="muted" style="margin-top:6px">
+      <div class="cmds" id="cmdList">
+        • Toggle: <b>Ctrl+Shift+R</b> (Mac: <b>Cmd+Shift+R</b>)<br>
+        • Set A: <b>Ctrl+Shift+Comma</b> — Set B: <b>Ctrl+Shift+Period</b>
+      </div>
+      <div style="margin-top:6px">
+        <button id="editShortcuts">Edit shortcuts…</button>
+      </div>
+      <div style="margin-top:8px">
+        <strong>On-page (YT tab focused)</strong>:
+        <b>R</b> = toggle, <b>[</b> = A, <b>]</b> = B, <b>\</b> = clear
+      </div>
+    </div>
+  </details>
+
+  <div id="status"></div>
+
+  <!-- keep using your external popup.js -->
+  <script src="popup.js"></script>
+</body>
+</html>
