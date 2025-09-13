@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>YouTube Repeater – Options</title>
+  <style>
+    body { margin: 16px; font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial; color:#0b1b28; }
+    label { display:flex; gap:8px; align-items:center; margin: 10px 0; }
+    select, input[type=number] { padding:6px 8px; }
+    .row { margin: 10px 0; }
+    button { padding:6px 12px; border-radius:8px; border:1px solid #66ccff55; background:#f5fbff; cursor:pointer; }
+    small { color:#345; }
+  </style>
+</head>
+<body>
+  <h2>YouTube Repeater – Options</h2>
+
+  <label>
+    <input id="autoEnable" type="checkbox">
+    Auto-enable repeat on every video
+  </label>
+
+  <label>
+    <input id="rememberPerVideo" type="checkbox">
+    Remember A–B & repeat per video
+  </label>
+
+  <div class="row">
+    <label>
+      Overlay position:
+      <select id="overlayPos">
+        <option value="top-left">Top-left</option>
+        <option value="top-right">Top-right</option>
+        <option value="bottom-left">Bottom-left</option>
+        <option value="bottom-right">Bottom-right</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="row">
+    <label>
+      Default repeat count (0 = infinite):
+      <input id="repeatCount" type="number" min="0" step="1" value="0">
+    </label>
+  </div>
+
+  <div class="row">
+    <button id="save">Save</button>
+    <span id="msg" style="margin-left:10px;color:#0a7b22;"></span>
+  </div>
+
+  <small>Keyboard shortcuts: set in <code>chrome://extensions/shortcuts</code>.</small>
+
+  <script src="options.js"></script>
+</body>
+</html>
