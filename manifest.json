@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "HNE YouTube Repeater",
-  "version": "1.0.8",
+  "name": "Repeat for YouTube™ A-B — HNE Looper",
+  "version": "1.0.9",
   "author": "hnetechnologies",
-  "description": "A–B repeat, finite repeats, per-video memory, clean popup control, and a live badge for YouTube.",
+  "description": "Loop any YouTube segment with A-B repeat and counts (∞ or N). Clean popup UI, hotkeys, badge. Works on Shorts & YouTube Music.",
   "permissions": ["storage"],
   "host_permissions": ["*://*.youtube.com/*"],
   "background": { "service_worker": "background.js" },
