@@ -1,29 +1,14 @@
 # HNE YouTube Repeater
 
-A lightweight Chrome MV3 extension to **A–B repeat** any YouTube video segment — with **finite or infinite repeats**, **per-video memory**, a **popup-only UI**, and a live toolbar **badge** (`R∞`, `R10`, etc). Works on **YouTube**, **Shorts**, and **YouTube Music**.
+HNE YouTube Repeater is an A-B repeat extension for YouTube by A A Hasnat and HNE Technologies. It supports looping a section of a video with finite or infinite repeats, popup controls, hotkeys, and per-video memory.
 
-> by [hnetechnologies](https://hnetechnologies.com)
-
----
+Links:
+- GitHub: https://github.com/deadsec07/ytrepeater
+- Main site: https://hnetechnologies.com/
+- Creator profile: https://deadsec07.github.io/
 
 ## Features
-
-- **A–B repeat** with one click (Set A / Set B / Clear)
-- **Finite repeat count** (e.g., repeat 10 times) or **infinite** (`0`)
-- **Popup-only UI** (no on-video overlay) — clean and unobtrusive
-- **Hotkeys**
-  - On-page: `R` (toggle), `[` (Set A), `]` (Set B), `\` (Clear)
-  - Global (Chrome commands): configurable in `chrome://extensions/shortcuts`
-- **Per-video memory** (remembers A/B and count if you want it to)
-- **Badge** shows current mode on the toolbar: `R∞`, `R3`, etc.
-- **Robust player detection** (SPA navigation, Shorts, Music)
-- **Private by design**: no network calls, no analytics, storage only
-
----
-
-## Install (developer mode)
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/deadsec07/ytrepeater.git
-   cd ytrepeater
+- A-B repeat with finite or infinite loop counts
+- Popup-only UI and toolbar badge state
+- Works on YouTube, Shorts, and YouTube Music
+- No network calls and local-only storage

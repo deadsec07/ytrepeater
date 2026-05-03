@@ -1,16 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "Repeat for YouTube™ A-B — HNE Looper",
+  "name": "Repeat for YouTube\u2122 A-B \u2014 HNE Looper",
   "version": "1.0.9",
-  "author": "hnetechnologies",
-  "description": "Loop any YouTube segment with A-B repeat and counts (∞ or N). Clean popup UI, hotkeys, badge. Works on Shorts & YouTube Music.",
-  "permissions": ["storage"],
-  "host_permissions": ["*://*.youtube.com/*"],
-  "background": { "service_worker": "background.js" },
+  "author": "A A Hasnat / HNE Technologies",
+  "description": "Loop any YouTube segment with A-B repeat and counts (\u221e or N). Clean popup UI, hotkeys, badge. Works on Shorts & YouTube Music.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_title": "HNE YouTube Repeater",
     "default_popup": "popup.html",
-    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
   },
   "icons": {
     "16": "icons/icon16.png",
@@ -21,23 +30,37 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
-      "js": ["content.js"],
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_idle"
     }
   ],
   "commands": {
     "toggle-repeat": {
-      "suggested_key": { "default": "Ctrl+Shift+R", "mac": "Command+Shift+R" },
+      "suggested_key": {
+        "default": "Ctrl+Shift+R",
+        "mac": "Command+Shift+R"
+      },
       "description": "Toggle repeat on/off"
     },
     "set-a": {
-      "suggested_key": { "default": "Ctrl+Shift+Comma", "mac": "Command+Shift+Comma" },
+      "suggested_key": {
+        "default": "Ctrl+Shift+Comma",
+        "mac": "Command+Shift+Comma"
+      },
       "description": "Set A point (start)"
     },
     "set-b": {
-      "suggested_key": { "default": "Ctrl+Shift+Period", "mac": "Command+Shift+Period" },
+      "suggested_key": {
+        "default": "Ctrl+Shift+Period",
+        "mac": "Command+Shift+Period"
+      },
       "description": "Set B point (end)"
     }
-  }
+  },
+  "homepage_url": "https://hnetechnologies.com/"
 }
